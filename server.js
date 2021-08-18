@@ -30,6 +30,7 @@ app.get('/instructor/:id', (req, res) => {
 app.get('/student/:id', (req, res) => {
   id = Number(req.params.id)
   let name = ""
+  //calling the backend app on container port 8080
   request(String(`http://backend:8080/student/${id}`), function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var obj = JSON.parse(body);
